@@ -145,4 +145,3 @@ Usage: <class_name>.update(<_id>, <dictionary>)
 ## Authors of this fork:
 
 - [Mhomaed Kaddouri](https://github.com/Yeeloman)
-- [Zakaria Afyf](https://github.com/Yandelf00)
