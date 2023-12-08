@@ -3,9 +3,9 @@
 from fabric.api import *
 
 
-
 env.hosts = ['54.164.103.65', '52.91.121.75']
 env.user = "ubuntu"
+
 
 
 def do_clean(number=0):
