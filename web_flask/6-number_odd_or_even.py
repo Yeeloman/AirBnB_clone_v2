@@ -47,7 +47,7 @@ def number_html_page(n):
 
 @app.route("/number_odd_or_even/<int:n>", strict_slashes=False)
 def number_odd_or_even_page(n):
-    """display a number"""
+    """display a number with its nature"""
     return render_template('6-number_odd_or_even.html', number=n)
 
 
