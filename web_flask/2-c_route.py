@@ -22,7 +22,7 @@ def hbnb_page():
 def C_is_fun_page(text):
     """display c plus a variable"""
     newText = text.replace('_', ' ')
-    return f'c {newText}'
+    return f'C {newText}'
 
 
 if __name__ == '__main__':
