@@ -25,6 +25,7 @@ def C_is_fun_page(text):
     return f'C {newText}'
 
 
+@app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def python_page(text="is_cool"):
     """display c plus a variable"""
