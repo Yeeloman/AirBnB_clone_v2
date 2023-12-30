@@ -37,7 +37,7 @@ class FileStorage:
 
     def delete(self, obj=None):
         """loop through __objects, compare each value
-        of key with cls argument wich is object
+        of key with cls argument which is object
         """
         if obj:
             id = obj.to_dict()["id"]
@@ -48,7 +48,7 @@ class FileStorage:
                 self.save()
 
     def all(self, cls=None):
-        """Returns a dictionary of models currently in storage"""
+        """Returns a dictionary of models in storage"""
         print_dict = {}
         if cls:
             className = cls.__name__
@@ -89,5 +89,5 @@ class FileStorage:
             pass
 
     def close(self):
-        """doc meth"""
+        """method for deserializing the JSON file to objects"""
         self.reload()
