@@ -22,7 +22,7 @@ def states_with_id_page(id):
     for state in states:
         if state.id == id:
             return render_template('9-states.html', state_id=state)
-    return render_template('9-states.html', state_id=None)
+    return render_template('9-states.html')
 
 
 @app.teardown_appcontext
