@@ -21,8 +21,8 @@ def states_with_id_page(id):
     states = storage.all('State').values()
     for state in states:
         if state.id == id:
-            return render_template('9-states.html', states=state)
-    return render_template('notfound.html')
+            return render_template('9-states.html', state_id=state)
+    return render_template('9-states.html', state_id=None)
 
 
 @app.teardown_appcontext
