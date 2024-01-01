@@ -39,22 +39,31 @@ class DBStorage:
         if env == 'test':
             Base.metadata.drop_all(self.__engine)
 
+
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
-        objects = dict()
-        all_classes = (User, State, City, Amenity, Place, Review)
-        if cls is None:
-            for class_type in all_classes:
-                query = self.__session.query(class_type)
-                for obj in query.all():
-                    obj_key = '{}.{}'.format(obj.__class__.__name__, obj.id)
-                    objects[obj_key] = obj
+        classes = {
+               'BaseModel': BaseModel, 'User': User, 'Place': Place,
+               'State': State, 'City': City, 'Amenity': Amenity,
+               'Review': Review
+              }
+        temp_dict = {}
+        """
+        if cls:
+            objects = self.__session.query(classes[cls]).all()"""
+        if cls:
+            if type(cls) is str:
+                cls = eval(cls)
+            objects = self.__session.query(cls).all()
         else:
-            query = self.__session.query(cls)
-            for obj in query.all():
-                obj_key = '{}.{}'.format(obj.__class__.__name__, obj.id)
-                objects[obj_key] = obj
-        return objects
+            all_classes = list(classes.values())
+            objects = []
+            for c in all_classes:
+                objects.extend(self.__session.query(c).all())
+        for obj in objects:
+            key = f"{obj.__class__.__name__}.{obj.id}"
+            temp_dict[key] = obj
+        return temp_dict
 
     def new(self, obj):
         """Adds new object to storage database"""
