@@ -39,14 +39,13 @@ class DBStorage:
         if env == 'test':
             Base.metadata.drop_all(self.__engine)
 
-
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         classes = {
-               'BaseModel': BaseModel, 'User': User, 'Place': Place,
-               'State': State, 'City': City, 'Amenity': Amenity,
-               'Review': Review
-              }
+            'BaseModel': BaseModel, 'User': User, 'Place': Place,
+            'State': State, 'City': City, 'Amenity': Amenity,
+            'Review': Review
+        }
         temp_dict = {}
         """
         if cls:
