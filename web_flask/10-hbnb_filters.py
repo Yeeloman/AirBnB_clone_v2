@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 @app.route('/hbnb_filters', strict_slashes=False)
-def states_page():
+def hbnb_filters_page():
     """returns a filter page"""
     states = storage.all('State')
     amenities = storage.all('Amenity')
