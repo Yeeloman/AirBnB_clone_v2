@@ -40,16 +40,16 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """Returns a dictionary of models currently in storage"""
+        """Returns a dictionary of models currently in storage
+        Args:
+            cls: the class
+        """
         classes = {
             'BaseModel': BaseModel, 'User': User, 'Place': Place,
             'State': State, 'City': City, 'Amenity': Amenity,
             'Review': Review
         }
         temp_dict = {}
-        """
-        if cls:
-            objects = self.__session.query(classes[cls]).all()"""
         if cls:
             if type(cls) is str:
                 cls = eval(cls)
